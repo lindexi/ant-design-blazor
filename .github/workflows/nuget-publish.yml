@@ -38,9 +38,9 @@ jobs:
 
       - name: Build
         run: |
-          cp -rf scripts/gh-pages/* scripts/gh-pages/.nojekyll scripts/gh-pages/.spa ./site/AntBlazor.Docs.Wasm/wwwroot
+# cp -rf scripts/gh-pages/* scripts/gh-pages/.nojekyll scripts/gh-pages/.spa ./site/AntBlazor.Docs.Wasm/wwwroot
           dotnet build -c release
-          dotnet publish -c Release -o cargo
+# dotnet publish -c Release -o cargo
 
       - name: Package
         run: dotnet pack components/AntBlazor.csproj -c Release --no-build --no-restore 
