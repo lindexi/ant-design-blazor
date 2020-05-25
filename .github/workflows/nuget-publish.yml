@@ -37,9 +37,10 @@ jobs:
         run: npm install
 
       - name: Build
-        run: |
+        run: dotnet build -c release
+        
 # cp -rf scripts/gh-pages/* scripts/gh-pages/.nojekyll scripts/gh-pages/.spa ./site/AntBlazor.Docs.Wasm/wwwroot
-          dotnet build -c release
+# dotnet build -c release
 # dotnet publish -c Release -o cargo
 
       - name: Package
