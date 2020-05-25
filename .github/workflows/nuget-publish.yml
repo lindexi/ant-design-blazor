@@ -10,7 +10,7 @@ on:
 
 jobs:
   publish-nuget:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout
@@ -46,5 +46,5 @@ jobs:
         run: dotnet pack components/AntBlazor.csproj -c Release --no-build --no-restore 
 
       - name: Publish to Nuget
-        run: dotnet nuget push pack-$GITHUB_RUN_ID/*.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY --skip-duplicate
+        run: dotnet nuget push bin/release/*.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY --skip-duplicate
 
