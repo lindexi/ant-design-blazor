@@ -33,7 +33,7 @@ jobs:
       - name: Set tag to version  
         run: dotnet TagToVersion -t ${{ github.ref }}
 
-      - name: Restore npm
+      - name: Install npm
         run: npm install
 
       - name: Build
