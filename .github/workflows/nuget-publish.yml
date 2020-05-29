@@ -41,7 +41,7 @@ jobs:
 
       - name: Package
         run: |
-          version = $(dotnet TagToVersion -t ${{ github.ref }} --toconsole true)
+          $version = $(dotnet TagToVersion -t ${{ github.ref }} --toconsole true)
           dotnet pack components/AntBlazor.csproj /p:PackageVersion=$version -c Release --no-build --no-restore 
 
       - name: Publish to Nuget
