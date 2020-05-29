@@ -30,6 +30,9 @@ jobs:
       - name: Install dotnet tool
         run: dotnet tool install -g dotnetCampus.TagToVersion
 
+      - name: Test
+        run: version=$(dotnet TagToVersion -t ${{ github.ref }} --toconsole true)  
+
       - name: Install npm
         run: npm install
 
@@ -41,7 +44,7 @@ jobs:
 
       - name: Package
         run: |
-          $version = $(dotnet TagToVersion -t ${{ github.ref }} --toconsole true)
+          version=$(dotnet TagToVersion -t ${{ github.ref }} --toconsole true)
           dotnet pack components/AntBlazor.csproj /p:PackageVersion=$version -c Release --no-build --no-restore 
 
       - name: Publish to Nuget
